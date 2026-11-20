@@ -1,0 +1,29 @@
+.card {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	padding: 16px;
+	background: #1c1229;
+	border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
+	border-radius: 16px;
+}
+
+.avatar {
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+.name {
+	margin: 0;
+	font-size: 16px;
+	font-weight: 600;
+}
+
+.role,
+.department {
+	margin: 4px 0 0;
+	color: var(--muted);
+	font-size: 14px;
+}
