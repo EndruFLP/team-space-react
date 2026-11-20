@@ -1,0 +1,14 @@
+:root {
+	--bg: #140c1f;
+	--sidebar: #100916;
+	--text: #f5f3ff;
+	--muted: #b7aec9;
+	--accent: #8b5cf6;
+}
+
+body {
+	margin: 0;
+	background: var(--bg);
+	color: var(--text);
+	font-family: 'Plus Jakarta Sans', sans-serif;
+}
