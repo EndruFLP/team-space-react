@@ -13,3 +13,30 @@
 	grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 	gap: 12px;
 }
+
+.search {
+	display: block;
+	width: 100%;
+	max-width: 360px;
+	margin-top: 20px;
+	padding: 12px 14px;
+	border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+	border-radius: 12px;
+	background: #1c1229;
+	color: var(--text);
+	font: inherit;
+}
+
+.search::-webkit-search-cancel-button {
+	cursor: pointer;
+}
+
+.search::placeholder {
+	color: var(--muted);
+	opacity: 0.4;
+}
+
+.empty {
+	margin: 16px 0 0;
+	color: var(--muted);
+}

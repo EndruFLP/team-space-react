@@ -9,6 +9,14 @@ function Employees() {
 	const [employees, setEmployees] = useState<Employee[]>([]);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState<string | null>(null);
+	const [query, setQuery] = useState('');
+
+	const normalizedQuery = query.trim().toLocaleLowerCase();
+	const visibleEmployees = employees.filter((employee) => {
+		const name = `${employee.firstName} ${employee.lastName}`.toLowerCase();
+
+		return name.includes(normalizedQuery);
+	});
 
 	useEffect(() => {
 		getEmployees()
@@ -32,13 +40,24 @@ function Employees() {
 	return (
 		<section>
 			<h2 className={styles.title}>Employees</h2>
-			<ul className={styles.list}>
-				{employees.map((employee) => (
-					<li key={employee.id}>
-						<EmployeeCard employee={employee} />
-					</li>
-				))}
-			</ul>
+			<input
+				type="search"
+				className={styles.search}
+				placeholder="Search employees..."
+				value={query}
+				onChange={(event) => setQuery(event.target.value)}
+			/>
+			{visibleEmployees.length === 0 ? (
+				<p className={styles.empty}>No employees found.</p>
+			) : (
+				<ul className={styles.list}>
+					{visibleEmployees.map((employee) => (
+						<li key={employee.id}>
+							<EmployeeCard employee={employee} />
+						</li>
+					))}
+				</ul>
+			)}
 		</section>
 	);
 }
