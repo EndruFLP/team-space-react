@@ -8,7 +8,7 @@ interface EmployeesResponse {
 }
 
 export async function getEmployees(): Promise<Employee[]> {
-	const response = await fetch('https://dummyjson.com/users');
+	const response = await fetch('https://dummyjson.com/users?limit=208');
 	if (!response.ok) {
 		throw new Error('Failed to load employees!');
 	}

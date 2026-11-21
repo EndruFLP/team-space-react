@@ -1,29 +1,27 @@
-import styles from './Employees.module.css';
-import type { Employee } from '../../types/employee';
-import { getEmployees } from '../../api/getEmployees';
-import { useEffect, useState } from 'react';
-import Spinner from '../../components/Spinner';
+import { useState } from 'react';
 import EmployeeCard from '../../components/EmployeeCard';
+import Spinner from '../../components/Spinner';
+import type { Employee } from '../../types/employee';
+import styles from './Employees.module.css';
 
-function Employees() {
-	const [employees, setEmployees] = useState<Employee[]>([]);
-	const [loading, setLoading] = useState(true);
-	const [error, setError] = useState<string | null>(null);
+interface EmployeesProps {
+	employees: Employee[];
+	loading: boolean;
+	error: string | null;
+	department: string;
+}
+
+function Employees({ employees, loading, error, department }: EmployeesProps) {
 	const [query, setQuery] = useState('');
 
-	const normalizedQuery = query.trim().toLocaleLowerCase();
+	const normalizedQuery = query.trim().toLowerCase();
 	const visibleEmployees = employees.filter((employee) => {
 		const name = `${employee.firstName} ${employee.lastName}`.toLowerCase();
+		const matchesName = name.includes(normalizedQuery);
+		const matchesDepartment = department === 'all' || employee.company.department === department;
 
-		return name.includes(normalizedQuery);
+		return matchesName && matchesDepartment;
 	});
-
-	useEffect(() => {
-		getEmployees()
-			.then(setEmployees)
-			.catch(() => setError("Couldn't load employees."))
-			.finally(() => setLoading(false));
-	}, []);
 
 	if (loading) {
 		return <Spinner />;

@@ -1,0 +1,140 @@
+.sidebar {
+	width: 280px;
+	background: var(--sidebar);
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 24px 16px;
+}
+
+.link,
+.department,
+.departmentActive {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	width: 100%;
+	padding: 10px 12px;
+	border: 0;
+	border-radius: 12px;
+	background: transparent;
+	color: var(--muted);
+	font: inherit;
+	text-align: left;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.active {
+	background: color-mix(in srgb, var(--accent) 22%, transparent);
+	color: var(--text);
+}
+
+.employees {
+	display: flex;
+	align-items: center;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--accent) 22%, transparent);
+	color: var(--text);
+}
+
+.employeesLabel {
+	flex: 1;
+	padding: 10px 12px;
+	border: 0;
+	background: transparent;
+	color: inherit;
+	font: inherit;
+	text-align: left;
+	cursor: pointer;
+}
+
+.chevron,
+.chevronOpen {
+	width: 32px;
+	height: 32px;
+	margin-right: 4px;
+	border: 0;
+	background: transparent;
+	color: var(--text);
+	cursor: pointer;
+}
+
+.chevron::before,
+.chevronOpen::before {
+	content: '';
+	display: block;
+	width: 8px;
+	height: 8px;
+	margin: 0 auto;
+	border-right: 2px solid currentColor;
+	border-bottom: 2px solid currentColor;
+	transition: transform 0.25s ease;
+}
+
+.chevron::before {
+	transform: rotate(45deg);
+}
+
+.chevronOpen::before {
+	transform: rotate(-135deg);
+}
+
+.panel,
+.panelOpen {
+	display: grid;
+	transition: grid-template-rows 0.25s ease;
+}
+
+.panel {
+	grid-template-rows: 0fr;
+}
+
+.panelOpen {
+	grid-template-rows: 1fr;
+}
+
+.panelInner {
+	min-height: 0;
+	overflow: hidden;
+}
+
+.departments {
+	list-style: none;
+	margin: 6px 0 0;
+	padding: 0 0 0 18px;
+}
+
+.departments li {
+	position: relative;
+}
+
+.departments li::before {
+	content: '';
+	position: absolute;
+	left: -14px;
+	top: 0;
+	width: 14px;
+	height: 50%;
+	border-left: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+	border-bottom: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+	border-bottom-left-radius: 10px;
+}
+
+.departments li::after {
+	content: '';
+	position: absolute;
+	left: -14px;
+	top: 50%;
+	bottom: 0;
+	border-left: 1px solid color-mix(in srgb, var(--text) 18%, transparent);
+}
+
+.departments li:last-child::after {
+	content: none;
+}
+
+.departmentActive {
+	color: var(--text);
+}
