@@ -6,6 +6,9 @@
 	background: #1c1229;
 	border: 1px solid color-mix(in srgb, var(--text) 8%, transparent);
 	border-radius: 16px;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 .avatar {

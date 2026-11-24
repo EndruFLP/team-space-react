@@ -4,6 +4,7 @@ import { getEmployees } from './api/getEmployees';
 import Sidebar from './components/Sidebar';
 import Dashboard from './pages/Dashboard/Dashboard';
 import Employees from './pages/Employees/Employees';
+import EmployeeProfile from './pages/EmployeeProfile/EmployeeProfile';
 import type { Employee } from './types/employee';
 import styles from './App.module.css';
 
@@ -32,6 +33,10 @@ function App() {
 							<Employees employees={employees} loading={loading} error={error} department={department} />
 						}
 					/>
+					<Route
+						path="/employees/:employeeId"
+						element={<EmployeeProfile employees={employees} loading={loading} error={error} />}
+					/>
 				</Routes>
 			</main>
 		</div>
@@ -39,3 +44,4 @@ function App() {
 }
 
 export default App;
+

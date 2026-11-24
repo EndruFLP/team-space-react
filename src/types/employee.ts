@@ -8,4 +8,5 @@ export interface Employee {
 		department: string;
 		title: string;
 	};
+	phone: number;
 }

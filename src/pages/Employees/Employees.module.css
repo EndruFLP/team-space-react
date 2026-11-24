@@ -40,3 +40,25 @@
 	margin: 16px 0 0;
 	color: var(--muted);
 }
+
+.pagination {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	margin-top: 16px;
+}
+
+.pageButton {
+	padding: 8px 14px;
+	border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+	border-radius: 12px;
+	background: #1c1229;
+	color: var(--text);
+	font: inherit;
+	cursor: pointer;
+}
+
+.pageButton:disabled {
+	opacity: 0.4;
+	cursor: default;
+}
