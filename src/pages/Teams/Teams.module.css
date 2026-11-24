@@ -9,3 +9,117 @@
 	margin: 16px 0 0;
 	color: var(--muted);
 }
+
+.form {
+	display: flex;
+	gap: 12px;
+	margin-top: 20px;
+}
+
+.input {
+	width: 100%;
+	max-width: 280px;
+	padding: 12px 14px;
+	border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+	border-radius: 12px;
+	background: #1c1229;
+	color: var(--text);
+	font: inherit;
+}
+
+.button {
+	padding: 12px 14px;
+	border: 0;
+	border-radius: 12px;
+	background: var(--accent-muted);
+	color: var(--text);
+	font: inherit;
+	cursor: pointer;
+	transition: background 200ms ease-in;
+}
+
+.button:hover {
+	background: var(--accent);
+}
+
+.name {
+	color: var(--team-name);
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.list {
+	list-style: none;
+	margin: 16px 0 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.row {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	padding: 12px 14px;
+	border-radius: 12px;
+	background: #1c1229;
+}
+
+.remove,
+.memberRemove {
+	padding: 8px 12px;
+	border: 1px solid var(--muted);
+	border-radius: 10px;
+	background: transparent;
+	color: var(--muted);
+	font: inherit;
+	cursor: pointer;
+	transition: 200ms ease-in;
+}
+
+.remove:hover,
+.memberRemove:hover {
+	color: var(--delete);
+	border: 1px solid var(--delete);
+}
+
+.actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.select {
+	padding: 8px 36px 8px 12px;
+	border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+	border-radius: 10px;
+	background-color: #140c1f;
+	background-image:
+		linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+		linear-gradient(-45deg, transparent 50%, var(--muted) 50%);
+	background-position:
+		calc(100% - 18px) 55%,
+		calc(100% - 12px) 55%;
+	background-size: 6px 6px;
+	background-repeat: no-repeat;
+	color: var(--text);
+	font: inherit;
+	appearance: none;
+}
+
+.members {
+	list-style: none;
+	margin: 8px 0 0;
+	padding: 0;
+	color: var(--text);
+}
+
+.member {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+	margin-top: 6px;
+}

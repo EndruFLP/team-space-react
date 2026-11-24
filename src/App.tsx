@@ -38,7 +38,7 @@ function App() {
 						path="/employees/:employeeId"
 						element={<EmployeeProfile employees={employees} loading={loading} error={error} />}
 					/>
-					<Route path="/teams" element={<Teams />} />
+					<Route path="/teams" element={<Teams employees={employees} />} />
 				</Routes>
 			</main>
 		</div>
