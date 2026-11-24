@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import type { Employee } from '../types/employee';
 import styles from './Sidebar.module.css';
 
@@ -11,6 +11,8 @@ interface SidebarProps {
 
 function Sidebar({ employees, department, onDepartmentChange }: SidebarProps) {
 	const navigate = useNavigate();
+	const location = useLocation();
+	const onEmployeesPage = location.pathname.startsWith('/employees');
 	const [open, setOpen] = useState(true);
 	const departments = [...new Set(employees.map((employee) => employee.company.department))].sort();
 
@@ -23,15 +25,31 @@ function Sidebar({ employees, department, onDepartmentChange }: SidebarProps) {
 		<nav className={styles.sidebar}>
 			<NavLink
 				to="/"
-				className={({ isActive }) => (isActive ? styles.active : styles.link)}
+				className={({ isActive }) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}
 				onClick={() => onDepartmentChange('all')}
 			>
+				<span className={styles.icon} aria-hidden="true">
+					grid_view
+				</span>
 				Dashboard
 			</NavLink>
 
+			<NavLink
+				to="/teams"
+				className={({ isActive }) => (isActive ? `${styles.link} ${styles.active}` : styles.link)}
+			>
+				<span className={styles.icon} aria-hidden="true">
+					groups
+				</span>
+				Teams
+			</NavLink>
+
 			<div>
-				<div className={styles.employees}>
+				<div className={onEmployeesPage ? `${styles.link} ${styles.active}` : styles.link}>
 					<button type="button" className={styles.employeesLabel} onClick={() => selectDepartment('all')}>
+						<span className={styles.icon} aria-hidden="true">
+							person
+						</span>
 						Employees
 					</button>
 					<button

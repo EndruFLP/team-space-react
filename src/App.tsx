@@ -6,6 +6,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Employees from './pages/Employees/Employees';
 import EmployeeProfile from './pages/EmployeeProfile/EmployeeProfile';
 import type { Employee } from './types/employee';
+import Teams from './pages/Teams/Teams';
 import styles from './App.module.css';
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
 						path="/employees/:employeeId"
 						element={<EmployeeProfile employees={employees} loading={loading} error={error} />}
 					/>
+					<Route path="/teams" element={<Teams />} />
 				</Routes>
 			</main>
 		</div>

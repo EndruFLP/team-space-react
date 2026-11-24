@@ -1,8 +1,14 @@
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
 :root {
 	--bg: #140c1f;
 	--sidebar: #100916;
 	--text: #f5f3ff;
-	--muted: #b7aec9;
+	--muted: #7f7c86;
 	--accent: #8b5cf6;
 }
 
